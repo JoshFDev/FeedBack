@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Paises</h1>
+    <div>
+        <button onclick="OprimirBoton('Brasil')">Primero</button>
+        <button onclick="OprimirBoton('Chile')">Segundo</button>
+        <button onclick="OprimirBoton('Colombia')">Tercero</button>
+        <button onclick="OprimirBoton('Mexico')">Cuarto</button>
+        <button onclick="OprimirBoton('Peru')">Quinto</button>
+    </div>
+    <script>
+
+        function OprimirBoton(Pais){
+            switch(Pais){
+                case "Brasil":
+                    alert("VAMOS BRASIL!");
+                    break;
+                case "Chile":
+                    alert("VAMOS CHILE!");
+                    break;
+                case "Colombia":
+                    alert("VAMOS Colombia!");
+                    break;
+                case "Mexico":
+                    alert("Mexico!");
+                    break;
+                case "Peru":
+                    alert("VAMOS PERU!");
+                    break;                                                                                
+            }
+        }
+
+    </script>
+</body>
+</html>

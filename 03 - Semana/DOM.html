@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>DOM</h1>
+    <p>Document Object Model</p>
+    <p>Es una interfaz de programación para los documentos HTML y XML. Proporciona una representación estructurada del documento como un árbol de objetos, lo que permite a los desarrolladores acceder y manipular el contenido, la estructura y el estilo de una página web de manera dinámica utilizando JavaScript.</p>
+    <p>Ejemplo de prueba</p>
+    <h1 id="titulo">Hola, mundo!</h1>    
+
+    <p>addListener()</p>
+    <button id="btn">Click me</button>
+
+</body>
+<script>
+    const titulo = document.querySelector('#titulo');//Selecciona el elemento con el id "titulo"
+    console.log(titulo);
+
+    titulo.textContent = 'Sistema de Pagos';
+
+    //Para escuchar eventos
+    const boton = document.querySelector('#btn');//Selecciona el elemento con el id "btn"
+    boton.addEventListener('click', () => { //Agrega un evento de escucha para el evento "click" en el botón
+        alert('¡Hola, has hecho clic en el botón!');
+    });
+
+</script>
+</html>

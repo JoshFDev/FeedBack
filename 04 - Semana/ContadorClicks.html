@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="spanish">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contador de Clicks</title>
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+    } 
+    #btn {
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    #counter {
+        margin-top: 20px;
+        font-size: 18px;
+    }
+
+
+</style>
+<body>
+    
+    <h2>Contador de Clicks</h2>
+
+    <button id="btn">Click me</button>
+    
+    <div id="counter">Clicks: 0</div>
+
+
+</body>
+<script>
+
+    const btn1 = document.querySelector('#btn');
+    const counter = document.querySelector('#counter');
+    let clickCount = 0;
+
+    function printClick(){
+        clickCount++;
+        console.log('Click');
+        counter.innerHTML = "Number of clicks: " + clickCount;
+    }
+
+    btn1.addEventListener('click', printClick);
+
+
+</script>
+</html>

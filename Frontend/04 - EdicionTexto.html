@@ -1,0 +1,37 @@
+<!--
+Crea una interfaz web con una línea de texto que, al hacerle clic, permita al usuario editarla ahí mismo (de texto pasa a ser un <input>).
+Cuando el usuario presiona enter o hace clic fuera del campo de edición, el input debe volver a convertirse en una línea de texto (y muestra el texto recién ingresado). Por ejemplo: si el texto original decía Nombre, al darle clic, el usuario puede editarlo e ingresar María. Luego, al hacer clic fuera del campo, queda el texto final María.
+Pista: Puedes usar un callback para escuchar el evento keyup que se invocará cada vez que se presione una tecla.
+!-->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf8">
+    <title>Edición instantánea</title>
+</head>
+<body>
+    
+    <div class="editable">Tu nombre...</div>
+
+    <script>
+        document.querySelector('.editable').addEventListener('click', (e) => {
+            const input = document.createElement('input');
+            const close = () => {
+                e.target.textContent = input.value;
+                input.replaceWith(e.target);
+            };
+            input.addEventListener('keyup', (e) => {
+                if (e.keyCode === 13) {
+                    close();
+                }
+            });
+            input.addEventListener('blur', () => {
+                close();
+            });
+            input.value = e.target.textContent;
+            e.target.replaceWith(input);
+            input.focus();
+        });
+    </script>
+</body>
+</html>

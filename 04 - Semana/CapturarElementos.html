@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Capturar Elementos</h1>
+    <p>En este ejercicio, vamos a practicar cómo capturar elementos del DOM utilizando JavaScript. Para ello, utilizaremos diferentes métodos de selección de elementos.</p>
+    <h2>Ejercicio 1: Capturar por ID</h2>
+    <p>Captura el elemento con el ID "titulo" y cambia su texto a "Nuevo Título"</p>
+    
+    <input type="text" id="concepto" placeholder="Concepto">
+
+    <input type="number" id="monto" placeholder="Monto">
+
+    <button id="agregar">Agregar</button>
+
+    <p><br>Lista de los elementos agregados</p>
+        <ul id="lista">
+    </ul>
+
+    <p><br>Total: $<span id="total">0</span></p>
+
+</body>
+<script>
+    const conceptoInput = document.querySelector("#concepto");
+    const montoInput = document.querySelector("#monto");
+    const agregarBtn = document.querySelector("#agregar");
+    const lista = document.querySelector("#lista");
+    const totalSpan = document.querySelector("#total");
+
+    agregarBtn.addEventListener("click", () => { //Función que se ejecuta al hacer click en el botón "Agregar", el () indica que es una función anónima, es decir, una función sin nombre.
+        
+        const concepto = conceptoInput.value;
+        const monto = montoInput.value;
+
+        if (concepto && monto) { // Verificar que ambos campos tengan valor
+            const li = document.createElement("li"); // Crear un nuevo elemento de lista, el createElement es un método que se utiliza para crear un nuevo elemento HTML, en este caso, un elemento de lista (li).
+            li.textContent = `${concepto}: $${monto}`;
+            // Agregar el nuevo elemento a la lista, el appendChild es un método que se utiliza para agregar un nuevo 
+            // nodo al final de la lista de hijos de un nodo padre, en este caso, estamos agregando el nuevo elemento de lista 
+            // (li) al elemento de lista (ul) con el ID "lista".
+            lista.appendChild(li);
+
+            // Actualizar el total
+            const total = parseFloat(totalSpan.textContent) + parseFloat(monto); // El parseFloat es una función que se utiliza para convertir 
+            // una cadena de texto en un número de punto flotante, en este caso, estamos convirtiendo el 
+            // texto del total (totalSpan.textContent) y el monto ingresado (monto) a números para poder sumarlos.
+            totalSpan.textContent = total.toFixed(2); // El toFixed(2) es un método que se utiliza para formatear un número con un 
+            // número específico de decimales, en este caso, estamos formateando el total a 2 decimales.
+
+            // Limpiar los campos después de agregar
+            conceptoInput.value = "";
+            montoInput.value = "";
+        } else {
+            alert("Por favor, completa ambos campos.");
+        }
+    });
+
+</script>
+</html>

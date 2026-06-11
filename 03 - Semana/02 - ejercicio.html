@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="nombre" placeholder="Escribe algo...">
+    <button id="btnMostrar">
+        Mostrar texto
+    </button>
+
+    <p id="textoMostrado">
+        Se mostrara el texto aqui!
+    </p>
+
+</body>
+<script>
+    const input = document.querySelector('#nombre'); //Selecciona el elemento con el id "nombre"
+    const botonMostrar = document.querySelector('#btnMostrar'); //Selecciona el elemento con el id "btnMostrar"
+    const textoMostrado = document.querySelector('#textoMostrado'); //Selecciona el elemento
+
+    botonMostrar.addEventListener('click', () => { //Agrega un evento de escucha para el evento "click" en el botón
+        const texto = input.value; //Obtiene el valor del campo de entrada
+        textoMostrado.textContent = `Has escrito: ${texto}`; //Actualiza el contenido del párrafo con el texto ingresado
+    });
+
+
+
+
+
+
+    //Ejercicio: Crear un contador de clics
+    let contador = 0; //Variable para almacenar el número de clics
+
+    const boton = document.createElement('button'); //Crear un nuevo elemento de botón
+    boton.textContent = 'Haz clic aquí'; //Establecer el texto del botón
+    document.body.appendChild(boton); //Agregar el botón al cuerpo del documento
+
+    const contadorTexto = document.createElement('p'); //Crear un nuevo elemento de párrafo
+    contadorTexto.textContent = `Número de clics: ${contador}`; //Establecer el texto del contador
+    document.body.appendChild(contadorTexto); //Agregar el contador al cuerpo del documento
+
+    boton.addEventListener('click', () => { //Agregar un evento de escucha para el evento "click" en el botón
+        contador++; //Incrementar el contador cada vez que se hace clic
+        contadorTexto.textContent = `Número de clics: ${contador}`; //Actualizar el texto del contador con el nuevo valor
+    });
+</script>
+</html>

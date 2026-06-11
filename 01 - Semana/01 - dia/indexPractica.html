@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practica</title>
+    <div id = "forEachD">
+
+    </div>
+</head>
+<body>
+    
+</body>
+</html>
+<script>
+    const autos = [
+            {marca: 'BMW',  modelo: 'Serie 3', year: 2012, precio: 30000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Audi', modelo: 'A4',  year: 2018, precio: 40000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+            {marca: 'Ford', modelo: 'Mustang',  year: 2015, precio: 20000, puertas: 2, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Audi', modelo: 'A6',  year: 2010, precio: 35000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+            {marca: 'BMW', modelo: 'Serie 5',  year: 2016, precio: 70000, puertas: 4, color: 'Rojo', transmision: 'automatico'},
+            {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2015, precio: 25000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Chevrolet', modelo: 'Camaro',  year: 2018, precio: 60000, puertas: 2, color: 'Rojo', transmision: 'manual'},
+            {marca: 'Ford', modelo: 'Mustang',  year: 2019, precio: 80000, puertas: 2, color: 'Rojo', transmision: 'manual'},
+            {marca: 'Dodge', modelo: 'Challenger',  year: 2017, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Audi', modelo: 'A3',  year: 2017, precio: 55000, puertas: 2, color: 'Negro', transmision: 'manual'},
+            {marca: 'Dodge', modelo: 'Challenger',  year: 2012, precio: 25000, puertas: 2, color: 'Rojo', transmision: 'manual'},
+            {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 45000, puertas: 4, color: 'Azul', transmision: 'automatico'},
+            {marca: 'BMW', modelo: 'Serie 5',  year: 2019, precio: 90000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Ford', modelo: 'Mustang',  year: 2017, precio: 60000, puertas: 2, color: 'Negro', transmision: 'manual'},
+            {marca: 'Dodge', modelo: 'Challenger',  year: 2015, precio: 35000, puertas: 2, color: 'Azul', transmision: 'automatico'},
+            {marca: 'BMW', modelo: 'Serie 3',  year: 2018, precio: 50000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'BMW', modelo: 'Serie 5',  year: 2017, precio: 80000, puertas: 4, color: 'Negro', transmision: 'automatico'},
+            {marca: 'Mercedes Benz', modelo: 'Clase C',  year: 2018, precio: 40000, puertas: 4, color: 'Blanco', transmision: 'automatico'},
+            {marca: 'Audi', modelo: 'A4',  year: 2016, precio: 30000, puertas: 4, color: 'Azul', transmision: 'automatico'}
+    ];    
+
+    //For Loop
+    for(let i = 0; i < autos.length; i++ ) {
+    //    console.log(autos[i]);
+    }    
+
+    //For loop con condicionales
+    for(let i = 0; i < autos.length; i++ ) {
+        if(autos[i].year === 2015 && autos[i].modelo == "Mustang") {
+            //console.log(autos[i]);
+        }
+    }
+
+    //.forEach
+        // Forma anterior con for loop
+        for(let i = 0; i < autos.length; i++ ) {
+            //console.log(autos[i]);
+        }
+        
+        // forma nueva con .forEach (ES6), es mas sencilla
+    //    autos.forEach(auto => {
+    //        console.log(auto);
+    //    });    
+
+    //Filter
+    //const autosRojos = autos.filter(auto => {
+      //  return auto.color === 'Rojo' 
+    //});
+    //console.log(autosRojos);    
+    
+    // Filtrar todos los automoviles rojos sin tanto codigo
+    
+    const autosRojos = autos.filter(auto => auto.color === 'Rojo');
+    //console.log(autosRojos);    
+    
+    const autosMustang = autos.filter(auto => auto.modelo == 'Mustang');
+    //console.log (autosMustang)
+    
+    //find
+    const primerResultado = autos.find(auto => auto.marca === 'BMW');
+    //console.log(primerResultado);    
+
+    const numeros = [1,2,3];
+    const total = numeros.reduce((total, numero) => total + numero, 0);
+    //console.log(total)
+
+    const totalInventario = autos.reduce((total, auto) => total + auto.precio, 0);
+    //console.log(totalInventario);    
+
+    //.some
+    const existeFerrari = autos.some( auto => auto.marca === 'Ferrari');
+    console.log(existeFerrari)
+
+    const existeBMW = autos.some( auto => auto.marca === 'BMW');
+    console.log(existeBMW)
+
+</script>

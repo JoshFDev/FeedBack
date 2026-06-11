@@ -1,0 +1,68 @@
+<script>
+    //Un objeto guarda información relacionada en formato:
+    //Datos sin modificar
+    const persona = {
+        nombre: "Joshua",
+        edad: 21,
+        activo: true
+    }
+    //Para imrpimr en consola hay dos maneras
+    console.log(persona.nombre);
+    console.log(persona["edad"]);
+
+    //Para modificar propiedades
+    persona.edad = 22
+
+    //Para agregar propiedades
+    persona.carrera = "Ingeniería"
+
+    //Eliminar propiedades
+    delete persona.activo;
+
+    console.log("=== OBJETOS ===");
+    //Recorrer objetos
+    for(let clave in persona)
+    {
+        console.log(clave)
+    }
+
+    //Para ver los valores
+    for(let clave in persona){
+        console.log(persona[clave])
+    }
+
+    //Arreglos de objetos
+    const pagos = [
+        {
+            id: 1,
+            concepto: "Agua",
+            monto: 300
+        },
+        {
+            id: 2,
+            concepto: "Internet",
+            monto: 500
+        }
+    ]    
+    
+    
+    //Imprimir un elemento de un arreglo
+    console.log('=== ELEMENTO DE UN ARREGLO ===');
+    console.log(pagos[1]);
+
+    //Acceder a una propiedad
+    console.log(pagos[0].concepto)
+
+    console.log("=== Recorrer los elemntos del arreglo ===");
+    //Recorrer arreglo de objetos
+    for(let pago of pagos){
+        console.log(pago)
+    }
+    
+    console.log(`=== IMPRIME LA PROPIEDAD ESPECIFICA ===`);
+    //Solo la propiedad especifica
+    for(let pago of pagos){
+        console.log(pago.concepto) 
+    }
+
+</script>

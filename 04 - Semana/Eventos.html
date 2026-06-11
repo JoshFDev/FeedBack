@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pagos</title>
+</head>
+<body>
+
+    <input id="inputConcepto" type="number" placeholder="Monto del pago">
+    <button id="btnAgregar">Agregar Pago</button>
+    
+    <p><strong>Historial de pagos:</strong></p>
+    <ul id="listaUI">
+        <!-- Los pagos aparecerán aquí dinámicamente -->
+    </ul>
+
+    <script>
+        // 1. Selectores
+        const boton = document.querySelector("#btnAgregar");
+        const inputConcepto = document.querySelector("#inputConcepto");
+        const listaUI = document.querySelector("#listaUI");
+        
+        // 2. Estado (Datos)
+        const pagos = [];
+
+        // 3. Función para actualizar la interfaz (Limpiar y volver a dibujar)
+        function renderizarPagos() {
+            // Limpiamos la lista actual para no duplicar elementos
+            listaUI.innerHTML = "";
+
+            pagos.forEach(pago => {
+                const li = document.createElement("li");
+                li.textContent = `$${pago}`; // Formateamos un poco el texto
+                listaUI.appendChild(li);
+            });
+        }
+
+        // 4. Lógica al hacer clic
+        boton.addEventListener("click", () => {
+            const monto = inputConcepto.value;
+
+            if (monto !== "") {
+                // Guardamos el dato
+                pagos.push(monto);
+                
+                // Limpiamos el input para el siguiente pago
+                inputConcepto.value = "";
+                
+                // ¡Importante! Mandamos a dibujar la lista actualizada
+                renderizarPagos();
+                
+                console.log("Pagos actuales:", pagos);
+            } else {
+                alert("Por favor, ingresa un número.");
+            }
+        });
+    </script>
+</body>
+</html>

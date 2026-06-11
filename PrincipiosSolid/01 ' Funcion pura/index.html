@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Open/Closed SOLID</title>
+</head>
+<body>
+
+    <h2>Tareas</h2>
+    <div id="content"></div>
+
+    <script>
+        // Clase encargada de obtener datos
+        class TodoService {
+            constructor(url) {
+                this.url = url;
+            }
+
+            async getTodos() {
+                const response = await fetch(this.url);
+                return await response.json();
+            }
+        }
+
+        // Impresora HTML
+        class HtmlPrinter {
+            constructor(element) {
+                this.element = element;
+            }
+
+            print(data) {
+                this.element.innerHTML = data
+                    .map(todo => `<p>${todo.title}</p>`)
+                    .join('');
+            }
+        }
+
+        // Impresora en consola
+        class ConsolePrinter {
+            print(data) {
+                console.log("=== TAREAS ===");
+
+                data.forEach(todo => {
+                    console.log(todo.title);
+                });
+            }
+        }
+
+        // NUEVA extensión
+        // No modificamos ninguna clase anterior
+        class AlertPrinter {
+            print(data) {
+                alert(
+                    data
+                        .slice(0, 5)
+                        .map(todo => todo.title)
+                        .join('\n')
+                );
+            }
+        }
+
+        // Esta función NO necesita cambiar
+        async function mostrarTareas(printer) {
+            const service = new TodoService(
+                'https://jsonplaceholder.typicode.com/todos'
+            );
+
+            const todos = await service.getTodos();
+
+            printer.print(todos);
+        }
+
+        // Elegimos cómo imprimir
+
+        const htmlPrinter = new HtmlPrinter(
+            document.getElementById('content')
+        );
+
+        mostrarTareas(htmlPrinter);
+
+        // También podrías hacer:
+        mostrarTareas(new ConsolePrinter());
+
+        // O agregar nuevas extensiones:
+        // mostrarTareas(new AlertPrinter());
+
+    </script>
+
+</body>
+</html>

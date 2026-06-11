@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Manipulaicion del DOM</h1>
+    <p id="texto">Este es el texto original</p>
+    <div>
+        <button onclick="cambiarTexto()">Cambiar Texto</button>        
+    </div>
+    <script>
+        function cambiarTexto(){
+            let elemento = document.getElementById("texto");
+            elemento.textContent = 'Texto cambiado con JS!';
+            elemento.style.color = '#' + Math.floor(Math.random()*16777215).toString(16);;
+        }
+    </script>
+</body>
+</html>

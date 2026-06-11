@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn">Click me</button>
+</body>
+<script>
+    // Evento de click para cambiar el color de fondo
+    const btn = document.getElementById('btn');
+
+    // Agregar un evento de click al botón
+    btn.addEventListener('click', function() {
+        // Generar un color aleatorio en formato hexadecimal
+        const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+        // Cambiar el color de fondo del cuerpo del documento
+        document.body.style.backgroundColor = randomColor;
+        // Cambiar el texto del botón para mostrar el color actual
+        btn.textContent = `Color: ${randomColor}`;
+    });
+</script>
+</html>

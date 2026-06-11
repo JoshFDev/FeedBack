@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dos columnas</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .contenedor {
+            display: flex;
+            gap: 20px;
+        }
+        .columna1,
+        .columna2 {
+            flex: 1;
+            background: blanchedalmond;
+            padding: 25px;
+            min-width: 250px;
+            max-width: 600px;
+        }
+        @media (max-width:700px) {
+            .contenedor {
+                flex-direction: column;
+                align-items: center;
+            }
+            .columna1,
+            .columna2 {
+                width: 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <h1>Ejercicio Dos Columnas</h1>
+    <div class="contenedor">
+        <div class="columna1">
+            <h2>Dolphins</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Facilis, voluptates. Lorem ipsum dolor sit amet consectetur
+                adipisicing elit. Facere, aspernatur.
+            </p>
+        </div>
+        <div class="columna2">
+            <h2>Ponchos</h2>
+            <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Atque, vitae.
+            </p>
+        </div>
+    </div>
+</body>
+</html>

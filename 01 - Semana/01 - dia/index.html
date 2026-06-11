@@ -1,0 +1,74 @@
+<script>
+    const data =
+    [
+        {
+            "name": "potatoes",
+            "units": 5
+        },
+        {
+            "name": "milk",
+            "units": 7
+        }
+    ]
+
+    //const productsName = data.map(product => product);
+    const productsName = data.map(product => {
+        return {
+            ...product,
+            units: product.units + 3
+        }
+    });
+    console.log(productsName);
+
+    //Funcion filter
+    const f = data.filter(product => product.units > 5);
+    console.log(f);
+
+
+    /*
+    // reduce recorre todo el arreglo y lo convierte en un solo valor
+    const totalUnits = data.reduce((acc, product) => {
+        
+        // acc = acumulador (guarda el resultado parcial)
+        // product = elemento actual del arreglo
+
+        // aquí sumamos las unidades de cada producto al acumulador
+        return acc + product.units;
+
+    }, 0); // 0 es el valor inicial del acumulador
+
+    // mostramos el resultado final
+    console.log(totalUnits); // 12    
+     */
+    
+
+
+    const resumen = data.reduce((acc, product) => {
+
+        // acumulamos el total de unidades
+        acc.totalUnits += product.units;
+
+        // guardamos los nombres de los productos en un arreglo
+        acc.products.push(product.name);
+
+        // SIEMPRE hay que regresar el acumulador
+        return acc;
+        
+    }, {
+        totalUnits: 0,   // valor inicial del total
+        products: []     // arreglo vacío inicial
+    });
+
+    // mostramos el resultado
+    console.log(resumen);
+
+    /*
+    Resultado:
+    {
+    totalUnits: 12,
+    products: ["potatoes", "milk"]
+    }
+    */
+
+
+</script>

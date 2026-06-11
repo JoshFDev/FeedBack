@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto de pagos</title>
+    <style>
+        .error-msj {
+            color: red;
+            font-size: 0.9em;
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 id="h1Pagos">Proyecto de pagos</h1>
+
+    <input type="text" id="concepto" placeholder="Concepto">
+    <input type="number" id="monto" placeholder="Monto">
+    <button id="btnAgregar">Agregar pago</button>
+
+    <ul id="listaPagos"></ul>
+
+    <h2>Total: $0</h2>
+
+    <script>
+
+        const concepto = document.querySelector("#concepto");
+        const monto = document.querySelector("#monto");
+        const boton = document.querySelector("#btnAgregar");
+        const lista = document.querySelector("#listaPagos");
+
+        boton.addEventListener("click", () => {
+            // .trim() elimina espacios en blanco vacíos
+            if (concepto.value.trim() === "" || monto.value.trim() === "") {
+                alert("Completa ambos campos antes de agregar un pago.");
+            }
+            else 
+            {
+                const li = document.createElement("li");
+                
+                li.textContent = `${concepto.value} - $${monto.value}`;
+                
+                lista.appendChild(li);
+
+                // Opcional: Limpia los campos después de agregar el pago
+                concepto.value = "";
+                monto.value = "";
+
+                //Mostrar el total de los montos
+                const totalElement = document.querySelector("h2");
+                const totalActual = parseFloat(totalElement.textContent.replace("Total: $", ""));    
+                const nuevoTotal = totalActual + parseFloat(monto.value);
+                totalElement.textContent = `Total: $${nuevoTotal.toFixed(2)}`;
+
+            }
+        });
+    </script>
+</body>
+</html>
